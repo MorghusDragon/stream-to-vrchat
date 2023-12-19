@@ -85,12 +85,12 @@ Go to any video player in VRChat and enter the following stream URL:
 
 * Windows from your PC:
 
-    rtspt://your-home-ip:8554/stream
+      rtspt://your-home-ip:8554/stream
 
   You can find your home IP by googling "what is my IP".
 
 * Linux with VPS:
 
-    rtspt://your-dns-name.com:8554/stream
+      rtspt://your-dns-name.com:8554/stream
 
 If it doesn't work on first try, try once more or click the Sync button.
