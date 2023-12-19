@@ -19,7 +19,7 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.rtmps.address=:1936"
       - "--certificatesresolvers.tls.acme.tlschallenge=true"
-      - "--certificatesresolvers.tls.acme.email=postmaster@example.com"
+      - "--certificatesresolvers.tls.acme.email=$ACME_EMAIL"
       - "--certificatesresolvers.tls.acme.storage=/letsencrypt/acme.json"
     ports:
       - 443:443
@@ -36,6 +36,7 @@ services:
       - "traefik.enable=true"
       - "traefik.tcp.routers.MediamtxRTMPS.tls=true"
       - "traefik.tcp.routers.MediamtxRTMPS.tls.passthrough=false"
+      - "traefik.tcp.routers.MediamtxRTMPS.tls.certResolver=tls"
       - "traefik.tcp.routers.MediamtxRTMPS.tls.domains=$HOSTNAME"
       - "traefik.tcp.routers.MediamtxRTMPS.rule=HostSNI(`$HOSTNAME`)"
       - "traefik.tcp.routers.MediamtxRTMPS.entrypoints=rtmps"
