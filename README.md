@@ -3,7 +3,14 @@ A set of files to create a server that can stream your desktop to VRChat video p
 
 ## Setup
 
-### Windows
+This guide works for Windows with your home internet connection, which is totally free. However,
+your home internet connection needs to be sufficiently fast, and you need to know how to configure
+your router to forward a port to your PC.
+
+Alternatively, if your home internet connection isn't fast enough or you just want it always available,
+there's a rough guide on how to set up a Virtual Private Server (VPS) with Linux, which come for as low as $4/month.
+
+### Windows (Local PC, Home internet connection)
 
 #### Prerequisites
 
@@ -19,7 +26,7 @@ A set of files to create a server that can stream your desktop to VRChat video p
 * Double click "mediamtx.exe"
 * If a red warning screen pops up (Smart Screen), click "Run Anyway"
 
-### Linux with VPS
+### Linux (On VPS, paid)
 
 #### Prerequisites
 
