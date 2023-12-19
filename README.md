@@ -66,11 +66,11 @@ Using [OBS](https://obsproject.com/), change your Stream Service to "Custom" and
 
 * Windows from your PC:
 
-    rtmp://localhost/
+      rtmp://localhost/
 
 * Linux with VPS:
 
-    rtmps://your-dns-name.com:1936/
+      rtmps://your-dns-name.com:1936/
 
 Replace `your-dns-name.com` with the `HOSTNAME` you set in your `.env` file. 
 
