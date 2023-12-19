@@ -8,6 +8,8 @@ A set of files to create a server that can stream your desktop to VRChat video p
 #### Prerequisites
 
  * [MediaMTX Standalone](https://github.com/bluenviron/mediamtx/releases) (Scroll down to "Assets" and then pick the file "mediamtx_vX.X.X_windows_amd64.zip")
+ * Port forward port `8554 (TCP)` from your home router to your PC
+ * Your home IP address (find out by googling "what is my IP")
 
 #### Starting
 
@@ -16,7 +18,7 @@ A set of files to create a server that can stream your desktop to VRChat video p
 * Double click "mediamtx.exe"
 * If a red warning screen pops up (Smart Screen), click "Run Anyway"
 
-### Linux
+### Linux with VPS
 
 #### Prerequisites
 
@@ -54,6 +56,12 @@ ufw enable
 
 Using [OBS](https://obsproject.com/), change your Stream Service to "Custom" and enter the following URL: 
 
+* Windows from your PC:
+
+    rtmp://localhost/
+
+* Linux with VPS:
+
     rtmps://your-dns-name.com:1936/
 
 Replace `your-dns-name.com` with the `HOSTNAME` you set in your `.env` file. 
@@ -66,6 +74,14 @@ That's it! Now you can click "Start Stream" in OBS.
 ## In VRChat
 
 Go to any video player in VRChat and enter the following stream URL:
+
+* Windows from your PC:
+
+    rtspt://your-home-ip:8554/stream
+
+  You can find your home IP by googling "what is my IP".
+
+* Linux with VPS:
 
     rtspt://your-dns-name.com:8554/stream
 
