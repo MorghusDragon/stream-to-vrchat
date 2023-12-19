@@ -1,0 +1,46 @@
+version: "3.8"
+
+x-common: &common 
+  restart: unless-stopped
+
+services:
+  traefik:
+    image: traefik:v2.4
+    container_name: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefik_letsencrypt:/letsencrypt
+    command:
+      #- "--log.level=DEBUG"
+      # - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.rtmps.address=:1936"
+      - "--certificatesresolvers.tls.acme.tlschallenge=true"
+      - "--certificatesresolvers.tls.acme.email=postmaster@example.com"
+      - "--certificatesresolvers.tls.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - 443:443
+      - 1936:1936
+    <<: *common
+  mediamtx:
+    image: bluenviron/mediamtx
+    container_name: mediamtx
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml
+    ports:
+      - 8554:8554
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tcp.routers.MediamtxRTMPS.tls=true"
+      - "traefik.tcp.routers.MediamtxRTMPS.tls.passthrough=false"
+      - "traefik.tcp.routers.MediamtxRTMPS.tls.domains=$HOSTNAME"
+      - "traefik.tcp.routers.MediamtxRTMPS.rule=HostSNI(`$HOSTNAME`)"
+      - "traefik.tcp.routers.MediamtxRTMPS.entrypoints=rtmps"
+      - "traefik.tcp.routers.MediamtxRTMPS.service=MediamtxRTMPS"
+      - "traefik.tcp.services.MediamtxRTMPS.loadbalancer.server.port=1935"
+    <<: *common
+volumes:
+  traefik_letsencrypt:

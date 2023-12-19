@@ -1,0 +1,54 @@
+###############################################
+# Global settings
+
+# Settings in this section are applied anywhere.
+
+###############################################
+# Global settings -> General
+
+# Verbosity of the program; available values are "error", "warn", "info", "debug".
+logLevel: info
+# Destinations of log messages; available values are "stdout", "file" and "syslog".
+logDestinations: [stdout]
+# If "file" is in logDestinations, this is the file which will receive the logs.
+logFile: mediamtx.log
+
+# Timeout of read operations.
+readTimeout: 10s
+# Timeout of write operations.
+writeTimeout: 10s
+# Size of the queue of outgoing packets.
+# A higher value allows to increase throughput, a lower value allows to save RAM.
+writeQueueSize: 512
+# Maximum size of outgoing UDP packets.
+# This can be decreased to avoid fragmentation on networks with a low UDP MTU.
+udpMaxPayloadSize: 1472
+
+api: no
+metrics: no
+pprof: no
+
+rtsp: yes
+protocols: [tcp]
+encryption: "no"
+rtspAddress: :8554
+authMethods: [basic]
+
+rtmp: yes
+rtmpAddress: :1935
+rtmpEncryption: "no"
+hls: no
+webrtc: no
+srt: no
+
+pathDefaults:
+  source: publisher
+  maxReaders: 0
+  record: no
+  publishUser:
+  publishPass:
+  publishIPs: []
+  overridePublisher: yes
+
+paths:
+  all_others:
