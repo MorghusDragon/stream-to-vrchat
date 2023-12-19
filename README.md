@@ -10,6 +10,7 @@ A set of files to create a server that can stream your desktop to VRChat video p
  * [MediaMTX Standalone](https://github.com/bluenviron/mediamtx/releases) (Scroll down to "Assets" and then pick the file "mediamtx_vX.X.X_windows_amd64.zip")
  * Port forward port `8554 (TCP)` from your home router to your PC
  * Your home IP address (find out by googling "what is my IP")
+ * Sufficient upload speed with your home internet connection
 
 #### Starting
 
