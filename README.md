@@ -29,7 +29,9 @@ there's a rough guide on how to set up a Virtual Private Server (VPS) with Linux
 ### Linux (On VPS, paid)
 
 #### Prerequisites
-
+ 
+ * Knowledge of how to connect to a Linux server with SSH
+ * Knowledge of how to edit a file in a Linux terminal
  * [Docker](https://docs.docker.com/engine/install/)
  * Your own VPS or machine where ports 443, 1936 and 8554 are available via IPv4
    I recommend [Hetzner](https://www.hetzner.com/) for the most bang for your buck, but
@@ -43,6 +45,9 @@ On a fresh Ubuntu 22.04 system, run this:
 ```
 # Install Docker packages
 sudo apt install docker.io docker-compose
+# Clone this repository with Git
+git clone https://github.com/MorghusDragon/stream-to-vrchat.git
+cd stream-to-vrchat
 # (Optional) Enable Firewall for security
 ufw allow OpenSSH
 ufw allow 443/tcp
